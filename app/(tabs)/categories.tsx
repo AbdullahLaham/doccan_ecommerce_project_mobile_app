@@ -55,12 +55,13 @@ export default function CategoriesScreen() {
   return (
     <View className="flex-1 bg-[#F4FAFF] px-4 pt-12">
       {/* Header */}
-      <Text className="text-xl font-bold text-center mb-6">
+      <Text className="text-2xl font-bold text-gray-600 text-center mb-6 ">
         التصنيفات
       </Text>
 
       {/* Grid */}
-      <FlatList
+      <View className="py-3 flex-1">
+        <FlatList
         data={categories}
         keyExtractor={(item) => item.id}
         numColumns={2}
@@ -69,7 +70,7 @@ export default function CategoriesScreen() {
         renderItem={({ item }) => (
           <TouchableOpacity
             activeOpacity={0.8}
-            className="bg-white w-[48%] mb-4 rounded-2xl p-4 shadow-sm"
+            className="bg-white w-[48%] mb-4 rounded-2xl p-4 shadow-lg shadow-black "
           >
             <View className="items-center">
               {/* Icon Text */}
@@ -90,6 +91,7 @@ export default function CategoriesScreen() {
           </TouchableOpacity>
         )}
       />
+      </View>
     </View>
   );
 }
