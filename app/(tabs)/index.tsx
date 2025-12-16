@@ -76,7 +76,7 @@ export default function HomeScreen() {
   //     </ThemedView>
   //   </ParallaxScrollView>
   // );
- return <Redirect href="/(tabs)/profile" />
+ return <Redirect href="/(tabs)/categories" />
 }
 
 const styles = StyleSheet.create({

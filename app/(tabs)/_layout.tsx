@@ -11,7 +11,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
-const TabIcon = ({
+
+
+
+export default function TabLayout() {
+
+
+  const TabIcon = ({
   source,
   focused,
 }: {
@@ -36,7 +42,6 @@ const TabIcon = ({
 
 
 
-export default function TabLayout() {
   const colorScheme = useColorScheme();
 
 
@@ -63,19 +68,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
-      {/* <Tabs.Screen
-        name="profile"
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      /> */}
+     
       <Tabs.Screen
         name="profile"
         options={{
           title: "Profile",
           headerShown: false,
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />
         }}
       />
       <Tabs.Screen
