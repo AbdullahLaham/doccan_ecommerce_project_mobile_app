@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ecommerce_project_app",
+    "name": "دكانك",
     "slug": "ecommerce_project_app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,11 +19,13 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.abdullah_lahham123.ecommerce_project_app"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
     },
     "plugins": [
       "expo-router",
@@ -43,6 +45,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "aa37339d-e6a4-4ad3-bce7-22242b7a37f3"
+      }
     }
   }
 }

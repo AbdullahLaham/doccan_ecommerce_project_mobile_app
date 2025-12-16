@@ -5,9 +5,42 @@ import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Image, ImageSourcePropType, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+// import { icons } from '@/constants';
+
+
+
+const TabIcon = ({
+  source,
+  focused,
+}: {
+  source: ImageSourcePropType;
+  focused: boolean;
+}) => (
+  <SafeAreaView
+    className={`flex flex-row justify-center items-center rounded-full ${focused ? "bg-general-700" : ""}`}
+  >
+    <View
+      className={`rounded-full w-12 h-12 p-7 ml-3 items-center justify-center  ${focused ? "bg-general-400" : ""}`}
+    >
+      <Image
+        source={source}
+        tintColor="white"
+        resizeMode="contain"
+        className="w-10 h-10 "
+      />
+    </View>
+  </SafeAreaView>
+);
+
+
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+
+
+  
 
   return (
     <Tabs
@@ -28,6 +61,29 @@ export default function TabLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+        }}
+      />
+      {/* <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+        }}
+      /> */}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: "Cart",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />
         }}
       />
     </Tabs>
