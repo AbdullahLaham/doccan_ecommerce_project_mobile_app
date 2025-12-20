@@ -5,6 +5,7 @@ import 'react-native-reanimated';
 import "@/global.css"
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { I18nManager } from 'react-native';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -12,6 +13,8 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  I18nManager.allowRTL(true);
+  
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>

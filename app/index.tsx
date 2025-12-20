@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text } from 'react-native';
+import { I18nManager, Platform, StyleSheet, Text } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
@@ -7,7 +7,15 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link, Redirect } from 'expo-router';
 import "@/global.css"
+import { useEffect } from 'react';
 export default function HomeScreen() {
+I18nManager.allowRTL(true);
+      I18nManager.forceRTL(true);
+  useEffect(() => {
+    if (!I18nManager.isRTL) {
+      
+    }
+  }, []);
   // return (
   //   <ParallaxScrollView
   //     headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}

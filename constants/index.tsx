@@ -29,6 +29,11 @@ import search from "@/assets/icons/search.png";
 import selectedMarker from "@/assets/icons/selected-marker.png";
 import star from "@/assets/icons/star.png";
 import target from "@/assets/icons/target.png";
+import minus from "@/assets/icons/minus.png";
+import plus from "@/assets/icons/plus.png";
+import trash from "@/assets/icons/trash.png";
+
+
 import to from "@/assets/icons/to.png";
 
 
@@ -67,4 +72,7 @@ export const icons = {
     star,
     target,
     to,
+    minus,
+    plus,
+    trash,
 };
