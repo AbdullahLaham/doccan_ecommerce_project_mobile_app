@@ -1,5 +1,5 @@
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
-
+import SafeView from "@/components/SafeView";
 const categories = [
   {
     id: "1",
@@ -49,11 +49,12 @@ const categories = [
     count: 12,
     icon: "⚽",
   },
+  
 ];
 
 export default function CategoriesScreen() {
   return (
-    <View className="flex-1 bg-[#F4FAFF] px-4 pt-12">
+    <SafeView className="flex-1 bg-[#F4FAFF] px-4 ">
       {/* Header */}
       <Text className="text-2xl font-bold text-gray-600 text-center mb-6 ">
         التصنيفات
@@ -92,6 +93,6 @@ export default function CategoriesScreen() {
         )}
       />
       </View>
-    </View>
+    </SafeView>
   );
 }
