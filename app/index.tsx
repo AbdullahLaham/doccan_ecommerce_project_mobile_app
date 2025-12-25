@@ -16,7 +16,7 @@ I18nManager.allowRTL(true);
       
     }
   }, []);
-  // return (
+  // return (a
   //   <ParallaxScrollView
   //     headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
   //     headerImage={

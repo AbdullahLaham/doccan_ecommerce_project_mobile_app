@@ -82,19 +82,29 @@ export type CartItem = {
 
 type CartStore = {
   items: CartItem[]
+  lastSyncedAt: number | null
+
+
   addItem: (item: CartItem) => void
   increaseQty: (id: string) => void
   decreaseQty: (id: string) => void
   removeItem: (id: string) => void
-  getTotalItems: () => number
+  
   clearCart: () => void
+  setItems: (items: CartItem[]) => void
+
+
   subtotal: () => number
+  getTotalItems: () => number
+
+  syncCart: () => Promise<void>
 }
 
 export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
+      lastSyncedAt: null,
 
       addItem: item =>
         set(state => {
@@ -126,8 +136,8 @@ export const useCartStore = create<CartStore>()(
             )
             .filter(i => i.quantity > 0),
         })),
-        getTotalItems: () => get().items.reduce((sum, item) => sum + item.quantity, 0),
-        
+      getTotalItems: () => get().items.reduce((sum, item) => sum + item.quantity, 0),
+
 
 
       removeItem: id =>
@@ -137,12 +147,44 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => set({ items: [] }),
 
+      setItems: items => set({ items }),
+
+
       subtotal: () =>
         get().items.reduce(
           (sum, item) => sum + item.price * item.quantity,
           0
         ),
+      /* ---------- API Sync ---------- */
+
+      syncCart: async () => {
+        try {
+          const { items } = get()
+
+          // 🛑 skip sync if cart empty
+          if (!items.length) return
+
+          await fetch('https://your-api.com/cart/sync', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer USER_TOKEN', // replace dynamically
+            },
+            body: JSON.stringify({
+              items: items.map(i => ({
+                product_id: i.id,
+                quantity: i.quantity,
+              })),
+            }),
+          })
+
+          set({ lastSyncedAt: Date.now() })
+        } catch (error) {
+          console.log('Cart sync failed', error)
+        }
+      },
     }),
+
     {
       name: 'cart-storage',
       storage: createJSONStorage(() => AsyncStorage),

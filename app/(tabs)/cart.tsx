@@ -292,6 +292,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import SafeView from "@/components/SafeView";
+import { router } from "expo-router";
 // const cartItems = [
 //   {
 //     id: 1,
@@ -453,7 +454,7 @@ export default function CartScreen() {
 
 
         <View className="  px-6 py-6 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 mb-[80px]">
-          <TouchableOpacity className="bg-black dark:bg-white rounded-2xl py-4">
+          <TouchableOpacity className="bg-black dark:bg-white rounded-2xl py-4" onPress={() => router.push('/(checkout)/checkout')}>
             <Text
               className="text-center text-white dark:text-black text-lg font-extrabold"
               style={{ writingDirection: "rtl" }}

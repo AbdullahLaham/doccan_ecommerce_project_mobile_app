@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Pressable, Image } from 'react-native'
 import { useCartStore } from '@/store/cartStore'
+import { router } from 'expo-router';
 
 export default function ProductCard({ id, image, title, price, oldPrice }: any) {
   const addItem = useCartStore(state => state.addItem);
@@ -19,7 +20,7 @@ export default function ProductCard({ id, image, title, price, oldPrice }: any) 
 
 
   return (
-    <Pressable className="w-44 bg-white rounded-3xl overflow-hidden shadow-md active:scale-95">
+    <Pressable className="w-44 bg-white rounded-3xl overflow-hidden shadow-md active:scale-95" onPress={() => router.push('/product/5')}>
       <Image source={{ uri: image }} className="w-full h-40" resizeMode="cover" />
 
       <View className="p-4">
