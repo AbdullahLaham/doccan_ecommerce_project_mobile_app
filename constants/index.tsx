@@ -34,6 +34,9 @@ import plus from "@/assets/icons/plus.png";
 import trash from "@/assets/icons/trash.png";
 
 import cart from "@/assets/icons/cart.png";
+import heart from "@/assets/icons/heart.png";
+
+import heartf from "@/assets/icons/heartf.png";
 
 
 import to from "@/assets/icons/to.png";
@@ -77,5 +80,7 @@ export const icons = {
     minus,
     plus,
     trash,
-    cart
+    cart,
+    heart,
+    heartf,
 };
