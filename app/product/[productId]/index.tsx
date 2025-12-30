@@ -13,6 +13,7 @@ import {
 import { useLocalSearchParams } from "expo-router";
 import { useCartStore } from "@/store/cartStore";
 import SafeView from "@/components/SafeView";
+import Toast from "react-native-toast-message";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -71,6 +72,15 @@ const mockProduct = {
     outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
     extrapolate: "clamp",
   });
+
+  const addCart = (item: any) => {
+    addToCart(item);
+    Toast.show({
+      type: 'success',
+      text1: "success",
+      text2: 'تمت الإضافة إلى السلة بنجاح',
+    });
+  }
 
   return (
     <SafeView className="flex-1 bg-gray-100">
@@ -168,7 +178,7 @@ const mockProduct = {
       <View className="flex-row p-4 bg-white shadow-lg rounded-t-3xl">
         <Pressable
           onPress={() =>
-            addToCart({
+            addCart({
               id: product.id,
               name: product.name,
               price: product.discount ? product.discountedPrice : product.price,

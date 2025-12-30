@@ -220,12 +220,21 @@ import { router } from 'expo-router'
 export default function OrderDetailsScreen() {
   const items = useCartStore(state => state.items)
   const subtotal = useCartStore(state => state.subtotal())
+  const clearCart = useCartStore(state => state?.clearCart)
 
   const [delivery, setDelivery] = useState<'standard' | 'express'>('standard')
   const [payment, setPayment] = useState<'card' | 'cash'>('card')
 
   const shipping = delivery === 'express' ? 20 : 10
-  const total = subtotal + shipping
+  const total = subtotal + shipping;
+
+
+  const confirmOrder = () => {  
+
+    router.push('/(order)/success');
+    clearCart();
+
+  }
 
   return (
     <SafeView className="flex-1 bg-neutral-50 dark:bg-neutral-900">
@@ -355,7 +364,7 @@ export default function OrderDetailsScreen() {
 
       {/* ===== CTA ===== */}
       <View className="px-6 py-4 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-        <TouchableOpacity className="bg-black dark:bg-white rounded-2xl py-4" onPress={() => router.push('/(order)/success')}>
+        <TouchableOpacity className="bg-black dark:bg-white rounded-2xl py-4" onPress={() => confirmOrder()}>
           <Text
             className="text-center text-white dark:text-black text-lg font-extrabold"
             style={{ writingDirection: 'rtl' }}

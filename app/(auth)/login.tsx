@@ -24,7 +24,7 @@ export default function SignupScreen() {
                 </View>
 
 
-                <Pressable className="mt-8 bg-[#1f3a5f] py-4 rounded-2xl active:scale-[0.98]">
+                <Pressable className="mt-8 bg-[#1f3a5f] py-4 rounded-2xl active:scale-[0.98]" onPress={() => router.push('/(tabs)/home')}>
                     <Text className="text-white text-center font-semibold text-lg">تسجيل الدخول</Text>
                 </Pressable>
 

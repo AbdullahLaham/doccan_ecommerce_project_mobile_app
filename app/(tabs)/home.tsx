@@ -292,6 +292,9 @@
 // CLEAN, SAFE, ERROR-FREE Expo + NativeWind implementation
 // No experimental props, no web-only features
 
+ //eas build --profile production --platform android
+
+
 import CategoriesSlider from '@/components/home/CategoriesSlider'
 import Header from '@/components/home/Header'
 // import Header from '@/components/home/Header'

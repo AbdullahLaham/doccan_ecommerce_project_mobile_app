@@ -94,7 +94,7 @@ export default function FavoritesPage() {
                 onPress={() => removeFavorite(item.id)}
                 className="absolute top-3 right-3 bg-white/90 p-2 rounded-full"
               >
-                <Image source={icons.trash} className='w-8 h-8'  />
+                <Image source={icons.trash} className='w-5 h-5'  />
               </Pressable>
             </View>
 

@@ -1,5 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { router } from 'expo-router'
 
 const CategoriesSlider = () => {
     return (
@@ -17,6 +18,7 @@ const CategoriesSlider = () => {
                     ].map((cat) => (
                         <Pressable
                             key={cat?.name}
+                            onPress={() => router.push('/products')}
                             className="w-24 mb-4 bg-white rounded-2xl py-6 items-center shadow-sm active:scale-95"
                         >
                             <Text className="font-bold text-sm">{cat?.name}</Text>

@@ -84,7 +84,7 @@ I18nManager.allowRTL(true);
   //     </ThemedView>
   //   </ParallaxScrollView>
   // );
- return <Redirect href="/(tabs)/categories" />
+ return <Redirect href="/(auth)/login" />
 }
 
 const styles = StyleSheet.create({

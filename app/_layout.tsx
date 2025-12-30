@@ -7,6 +7,7 @@ import '@/global.css'
 import { useColorScheme } from '@/hooks/use-color-scheme'
 import { I18nManager } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Toast from 'react-native-toast-message'
 
 // ✅ RTL should be configured ONCE
 I18nManager.allowRTL(true)
@@ -35,6 +36,9 @@ export default function RootLayout() {
 
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </ThemeProvider>
+
+      {/* 👇 THIS is all toast needs */}
+      <Toast />
     </SafeAreaProvider>
   )
 }

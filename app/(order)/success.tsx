@@ -109,7 +109,7 @@ export default function OrderSuccessScreen() {
       {/* Actions */}
       <View className="px-6 py-6 bg-white border-t border-neutral-200">
         <TouchableOpacity
-          onPress={() => router.replace('/')}
+          onPress={() => router.replace('/(tabs)/home')}
           className="bg-[#88c1c5] rounded-2xl py-4 mb-3"
         >
           <Text

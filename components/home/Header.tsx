@@ -49,7 +49,8 @@ export default function Header({ count = 0 }: HomeHeaderProps) {
     <View className="px-4 pt-6 pb-4 bg-gray-100">
       <View className="flex-row items-center gap-3">
         {/* App Title */}
-        <Text className="text-2xl font-extrabold">دكانك</Text>
+        {/* <Text className="text-2xl font-extrabold">دكانك</Text> */}
+        <Image source={require('@/assets/images/title.png')} style={{ width: 60, height: 70 }} />
 
         {/* Search Input */}
         <View className="flex-1 bg-white rounded-2xl px-4 py-2 shadow-sm flex-row items-center">

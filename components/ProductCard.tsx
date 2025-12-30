@@ -3,6 +3,7 @@ import React from 'react'
 import { Pressable, Image } from 'react-native'
 import { useCartStore } from '@/store/cartStore'
 import { router } from 'expo-router';
+import Toast from 'react-native-toast-message'
 
 export default function ProductCard({ id, image, title, price, oldPrice }: any) {
   const addItem = useCartStore(state => state.addItem);
@@ -15,6 +16,12 @@ export default function ProductCard({ id, image, title, price, oldPrice }: any) 
       image: image,
 
     });
+    Toast.show({
+  type: 'success',
+  text1: "success",
+  text2: 'تمت الإضافة إلى السلة بنجاح',
+});
+console.log('Item added to cart');
   }
 
 
