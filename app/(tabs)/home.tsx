@@ -303,7 +303,8 @@ import ProductCard from '@/components/ProductCard'
 import SafeView from '@/components/SafeView'
 import React from 'react'
 import { View, Text, Image, ScrollView, Pressable, Dimensions } from 'react-native'
-
+import { Ionicons } from '@expo/vector-icons';
+ 
 const { width } = Dimensions.get('window')
 
 // =========================

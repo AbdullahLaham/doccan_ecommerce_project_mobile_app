@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, ActivityIndicator, Alert, Image, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useCartStore } from '@/store/cartStore';
+import { Ionicons } from '@expo/vector-icons';
 
 interface HomeHeaderProps {
   count?: number
@@ -68,8 +69,9 @@ export default function Header({ count = 0 }: HomeHeaderProps) {
 
         {/* Cart */}
         <Pressable onPress={() => router.push('/cart')} className="relative">
-          <View className="w-10 h-10 rounded-full items-center justify-center shadow-black shadow-sm ">
-            <Image source={require('@/assets/icons/cart.png')} style={{ width: 35, height: 35}} />
+          <View className="w-14 h-14 rounded-full items-center justify-center p-2 shadow-black shadow-sm ">
+            <Ionicons name="cart-outline" size={35} color="black" />;
+
           </View>
           {cartCount > 0 && (
             <View className="absolute -top-1 -right-1 bg-red-500 w-5 h-5 rounded-full items-center justify-center">
